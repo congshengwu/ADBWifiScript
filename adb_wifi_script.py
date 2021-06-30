@@ -65,6 +65,7 @@ if __name__ == '__main__':
     if connected_ip is not None:
         disconnect_ret = exec_cmd('adb disconnect ' + connected_ip)
         print(disconnect_ret)
+        print("OK!")
         sys.exit(0)
 
     wlan0_ip = get_device_ip()
@@ -76,3 +77,4 @@ if __name__ == '__main__':
     print("IP address: " + wlan0_ip)
 
     connect_device(wlan0_ip)
+    print("OK!")
