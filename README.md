@@ -32,3 +32,11 @@ and connect your phone to your PC over Wifi. Last, the wireless debugging is ava
 ## ADB commands reference:
 
 https://adbshell.com/commands
+
+## Screenshots:
+
+### connected:
+![Connected](https://raw.githubusercontent.com/congshengwu/ADBWifiScript/master/connected.png)
+
+### disconnected:
+![Disconnected](https://raw.githubusercontent.com/congshengwu/ADBWifiScript/master/disconnected.png)
