@@ -9,9 +9,15 @@ Python 2/3, ADB tools.
 
 USB debug mode must be turned on in the Developer options from phone setting.
 
-Connect your Android device to your PC with data cable, and make sure they are in the same Wifi network.
-Then execute this script, the script will obtain the IP address of your phone via adb command,
-and connect your phone to your PC over Wifi. Last, the wireless debugging is available.
+Connect your Android device to your PC via USB cable, and make sure they are in the same Wifi network.
+
+## How to use:
+
+If the Environment and Phone Setting is ready, download the file [adb_wifi_script.py](https://github.com/congshengwu/ADBWifiScript/blob/master/adb_wifi_script.py) to your local computer.
+
+Run `python adb_wifi_script.py`.
+
+The script will obtain the IP address of your phone via adb command, and connect your phone to your PC over Wifi, the wireless debugging will be available.
 
 ## The used adb commands in this script:
 
