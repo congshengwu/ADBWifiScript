@@ -19,7 +19,7 @@ Run `python adb_wifi_script.py`.
 
 The script will obtain the IP address of your phone via adb command, and connect your phone to your PC over Wifi, the wireless debugging will be available.
 
-## The used adb commands in this script:
+## The adb command used in this script:
 
 `adb version`
 
