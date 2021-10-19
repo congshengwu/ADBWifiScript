@@ -10,6 +10,16 @@ def exec_cmd(cmd):
     return cmd_result
 
 
+# Check whether adb command is available
+def check_adb_env():
+    version_ret = exec_cmd('adb version')
+    match_ret = re.search('Android Debug Bridge version', version_ret)
+    if match_ret:
+        return True
+    else:
+        return False
+
+
 def start_adb_server():
     os.system("adb start-server")
 
@@ -18,6 +28,7 @@ def filter_device_list(device):
     return device != ''
 
 
+# Get the connected device list.
 def get_connected_devices():
     devices_ret = exec_cmd('adb devices')
     device_list = list(filter(filter_device_list, devices_ret.split('\n')))
@@ -28,6 +39,7 @@ def get_connected_devices():
     return final_device_list
 
 
+# Check whether the device is already connected over wifi.
 def check_connection_over_wifi(device_list):
     for item in device_list:
         match_obj = re.search(r'.*?(\d+\.\d+\.\d+\.\d+):.*', item)
@@ -36,6 +48,7 @@ def check_connection_over_wifi(device_list):
     return None
 
 
+# Get ip address of the connected device via USB.
 def get_device_ip():
     ip_ret = exec_cmd('adb shell ip addr show wlan0')
     math_obj = re.search(r'inet (\d+\.\d+\.\d+\.\d+).*?wlan0', ip_ret)
@@ -44,6 +57,7 @@ def get_device_ip():
     return None
 
 
+# Run adb connect command.
 def connect_device(ip):
     tcpip_ret = exec_cmd('adb tcpip 5555')
     print(tcpip_ret)
@@ -52,6 +66,11 @@ def connect_device(ip):
 
 
 if __name__ == '__main__':
+    adb_env = check_adb_env()
+    if not adb_env:
+        print('adb tools not found, please install adb first.')
+        sys.exit(0)
+
     start_adb_server()
 
     connected_device_list = get_connected_devices()
